@@ -1,97 +1,124 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections;
 
-namespace advanced_Csharp
+
+namespace collection_implementation
 {
-
-    public struct book
-    {
-        private string _title ;
-        private string _author;
-        private string _subject;
-        private  int bookid;
-
-
-
-        public book(string title, string author, string subject, int id)
-        {
-            _title = title;
-            _author = author;
-            _subject = subject;
-            bookid = id;
-        }
-        /*public book(string auth,string sub)
-        {
-            _author = "akshat kumar";
-            _subject = "c++ for beginners";
-        }
-        */
-
-        public void PrintBook()
-        {
-            Console.WriteLine($" Book_id :{bookid} \n Title:{_title}\n" +
-                $"Author : {_author}");
-        }
-
-
-
-    }
-
-
     class Program
     {
-
-
-        public enum LogTypes
-        {
-            Error = 66,
-            Warning = 800,
-            Fatal = 700,
-            Information = 900
-        }
         static void Main(string[] args)
         {
-            int myVar1 = (int)LogTypes.Error;
-            LogTypes myVar10 = LogTypes.Error;
 
-            int myVar2 = (int)LogTypes.Warning;
-            int myVar3 = (int)LogTypes.Fatal;
-            int myVar4 = (int)LogTypes.Information;
-            Console.WriteLine((myVar10));
-            Console.WriteLine(myVar1);
-            Console.WriteLine(myVar2);
-            Console.WriteLine(myVar3);
-            Console.WriteLine(myVar4);
-
-            Program p1 = new Program();
-            p1.ErrorLogging("this is the error message", LogTypes.Error);
-
-
-
-            book book1 = new book("Encyclopedia ", "utkarsh", "science", 100001);
-            book1.PrintBook();
-
-
-
-        }
-
-        public void ErrorLogging(string message, LogTypes logtype)
-        {
-            switch (logtype)
+            /*int[] array = new int[2];
+            int[][] array1 = new int[2][];
+            int[,] array2 = new int[2,6];
+            int[,] array4 = new int[2,5];
+            foreach(var v in array)
             {
-                case LogTypes.Error:
-                    Console.WriteLine(message);
-                    break;
-                case LogTypes.Fatal:
-                    Console.WriteLine(message);
-                    break;
-                case LogTypes.Warning:
-                    Console.WriteLine(message);
-                    break;
-
-                case LogTypes.Information:
-                    Console.WriteLine(message);
-                    break;
+                Console.WriteLine(v);
             }
+            */
+
+            //  array[2] = 3;
+
+            ArrayList array11 = new ArrayList();
+            array11.Add(101);
+            array11.Add("James");
+            array11.Add("James");
+            array11.Add(" ");
+            array11.Add(true);
+
+
+
+
+
+
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add(1, 1);
+            hashtable.Add(2, "hello");
+            hashtable.Add(3, 'w');
+            hashtable.Add(4, 1000);
+
+
+
+            Queue q = new Queue();
+            q.Enqueue(10);
+            q.Enqueue("string");
+            q.Enqueue("hello");
+            q.Enqueue('g');
+            q.Dequeue();
+            q.Peek();
+
+
+
+            Stack st = new Stack();
+            st.Push(22);
+            st.Push(33);
+            st.Pop();
+            st.Peek();
+
+
+
+            List <int> list = new List<int>();
+
+            list.Add(5);
+            list.Add(10);
+            list.Add(15);
+            list.Add(15);
+            list.Add(20);
+            list.Add(25);
+
+            Console.WriteLine("\nList<T>:");
+            foreach (var i in list)
+            {
+                Console.WriteLine(i);
+            }
+            list.Remove(15);
+            list.Remove(10);
+            Console.WriteLine("\nList<T> after Remove:");
+            foreach (var i in list)
+            {
+                Console.WriteLine(i);
+            }
+       
+            Dictionary<int, string> myD = new Dictionary<int, string>();
+
+            myD.Add(1, "Utkarsh");
+            myD.Add(2, "srivastava");
+            myD.Add(3, " ");
+
+            Console.WriteLine("\nDictionary<TKey , TValue>:");
+            foreach (var i in myD)
+            {
+                Console.WriteLine("{0} : {1}", i.Key, i.Value);
+            }
+            Console.WriteLine("Count : {0} ", myD.Count);
+        
+
+
+            foreach (var item in array11)
+            {
+                Console.WriteLine(item);
+            }
+
+            foreach (var item in q)
+            {
+                Console.WriteLine(item);
+            }
+
+            foreach (var item in st)
+            {
+                Console.WriteLine(item);
+            }
+            foreach (DictionaryEntry item in hashtable)
+            {
+                Console.WriteLine(item.Key);
+            }
+
+
+
+
         }
     }
 }
